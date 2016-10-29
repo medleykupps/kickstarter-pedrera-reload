@@ -1,0 +1,21 @@
+{
+  "name": "pedrera-kickstarter",
+  "version": "0.0.0",
+  "authors": [
+    "medleykupps <medleykupps@hotmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.7"
+  }
+}

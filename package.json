@@ -11,8 +11,11 @@
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
+    "gulp-batch": "^1.0.5",
     "gulp-inject": "^4.1.0",
     "gulp-sass": "^2.3.2",
+    "gulp-server-livereload": "^1.9.2",
+    "gulp-watch": "^4.3.10",
     "wiredep": "^4.0.0"
   }
 }

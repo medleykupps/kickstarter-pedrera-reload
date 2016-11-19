@@ -3,6 +3,9 @@ var sass=require('gulp-sass');
 var inject=require('gulp-inject');
 var wiredep=require('wiredep').stream;
 var del=require('del');
+var watch=require('gulp-watch');
+var batch=require('gulp-batch');
+var server=require('gulp-server-livereload');
 
 gulp.task('clean', function(cb) {
     del(['static'], cb);
@@ -45,6 +48,21 @@ gulp.task('html', ['styles'], function() {
             ignorePath: ['src','static']
         }))
         .pipe(gulp.dest('static'));
+});
+
+gulp.task('watch', function() {
+    watch('./src/**/*.*', batch(function(events, done) {
+        gulp.start('html', done);
+    }));
+});
+
+gulp.task('webserver', ['watch'], function() {
+    gulp.src('static')
+        .pipe(server({            
+            livereload: true,
+            directoryListing: false,
+            open: true
+        }));
 });
 
 gulp.task('default', ['clean', 'html']);

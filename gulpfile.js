@@ -33,13 +33,18 @@ gulp.task('jshint', function() {
 gulp.task('vendorjs', function() {
     return gulp.src([
             'bower_components/jquery/dist/jquery.js',
-            'bower_components/bootstrap_sass/assets/javascripts/bootstrap.js',
+            'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
             ])
         .pipe(sourcemaps.init())
             .pipe(concat('vendor.js'))
             .pipe(gutil.env.type==='production' ? uglify() : gutil.noop())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('static/js/'));
+});
+
+gulp.task('fonts', function() {
+    return gulp.src(['bower_components/bootstrap-sass/assets/fonts/bootstrap/*.*'])
+        .pipe(gulp.dest('static/fonts/bootstrap'));
 });
 
 gulp.task('styles', function() {
@@ -73,7 +78,7 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('static/css'));
 });
 
-gulp.task('html', ['styles', 'scripts'], function() {
+gulp.task('html', ['styles', 'scripts', 'fonts'], function() {
     var injectFiles=gulp.src(['static/css/main.css']);    
     return gulp.src('src/index.html')
         .pipe(inject(injectFiles, {

@@ -47,8 +47,16 @@ gulp.task('fonts', function() {
         .pipe(gulp.dest('static/fonts/bootstrap'));
 });
 
+gulp.task('images', function() {
+    return gulp.src(['src/images/**/*.*'])
+        .pipe(gulp.dest('static/images'));
+});
+
 gulp.task('styles', function() {
-    var injectFiles=gulp.src('src/css/_*.scss', {read:false});
+    var injectFiles=gulp.src([
+        'src/css/_*.scss',
+        'src/css/components/_*.scss'
+        ], {read:false});
     var transform = function(filepath) { return '@import "' + filepath + '";'; };
     return gulp.src('src/css/main.scss')
         .pipe(sourcemaps.init())
@@ -78,7 +86,7 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('static/css'));
 });
 
-gulp.task('html', ['styles', 'scripts', 'fonts'], function() {
+gulp.task('html', ['styles', 'scripts', 'images', 'fonts'], function() {
     var injectFiles=gulp.src(['static/css/main.css']);    
     return gulp.src('src/index.html')
         .pipe(inject(injectFiles, {

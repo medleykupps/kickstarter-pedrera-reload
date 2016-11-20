@@ -1,0 +1,54 @@
+@import '../_colours.scss';
+
+#carousel-home {
+
+    background-color: #000;
+
+    .carousel-inner {
+        background-color: #fff;
+        .item {
+            img {
+                margin: 0 auto;
+            }
+            .btn-register {
+                border-color: $a7tprimary;
+                background-color: $a7tprimary;
+            }
+        }
+
+        .carousel-caption {
+            background-color: rgba(0,0,0,0.5);
+        }
+    }
+
+}
+
+.home-site-nav {
+
+    .inner {
+        background-color: #000;
+    }    
+
+    ul {
+        list-style: none;
+        margin: 0;
+
+        li {
+            display: inline-block;
+
+            a { 
+                display: block;
+                padding: 8px 16px;
+                color: #fff;
+                background-color: #000;
+                font-size: 20px
+            }
+            a:hover {
+                background-color: $a7tprimary;
+                text-decoration: none;
+            }
+        }
+    }
+
+}
+

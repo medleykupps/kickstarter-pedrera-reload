@@ -1,4 +1,8 @@
 # Pedrera Kick-Starter
 
-1. Run npm install
-2. 
+Run the following to get started
+
+```
+npm install
+bower install
+```
